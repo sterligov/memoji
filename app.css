@@ -1,0 +1,135 @@
+body {
+    background: #cfd0cf;
+    font: 42px Arial;
+    color: #434344;
+    line-height: 47px;
+    font-weight: 600;
+}
+
+.game {
+    width: 595px;
+    margin: auto;
+}
+
+.game #title {
+    text-align: center;
+    margin: 40px auto;
+}
+
+#board {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
+
+#timer {
+    line-height: 36px;
+    text-align: center;
+    font-size: 32px;
+    margin-top: 30px;
+}
+
+#board > div {
+    perspective: 600px;
+}
+
+.card {
+    cursor: pointer;
+    font-size: 75px;
+    width: 130px;
+    height: 130px;
+    transform-style: preserve-3d;
+}
+
+.card-front {
+    background: linear-gradient(to top right, #22ab93, #19668d);
+}
+
+.card-back, .card-front {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    border: 5px solid white;
+    border-radius: 9px;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.shirt-down {
+    transition: transform 0.5s;
+    transform: rotateY(180deg);
+}
+
+.shirt-up {
+    transition: transform 0.5s;
+    transform: rotateY(0deg);
+}
+
+.match-card {
+    background: #5ad66f;
+    border: 5px solid #5ad66f;
+}
+
+.not-match-card {
+    border: 5px solid #f44336;
+    background: #f44336;
+}
+
+#end-game-dialog {
+    color: #434344;
+    min-width: 350px;
+    border: none;
+    padding: 0;
+    /* position: absolute; */
+    text-align: center;
+}
+
+#end-game-dialog > div {
+    margin-top: 30px;
+    font-size: 48px;
+}
+
+#play-again {
+    border: 0;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    height: 40px;
+    padding: 0 30px;
+    background: linear-gradient(to right, #22ab93, #19668d);
+    color: white;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    outline: 0;
+}
+
+#play-again:active {
+    box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.5);
+    outline: 0;
+}
+
+#end-game-dialog > div {
+    display: flex;
+    justify-content: center;
+}
+
+.jump {
+    animation-name: jump-animation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    transition-timing-function:  ease-in-out;
+}
+
+@keyframes jump-animation {
+    50% {
+        transform: translateY(-15px) scaleY(1.5);
+    }
+}
