@@ -127,12 +127,11 @@ Game.prototype.startTimer = function() {
     let t = 59;
     let timerElement = document.getElementById('timer');
     timerElement.innerHTML = "00:59";
-    let _this = this;
-    this.timerId = setInterval(function() {
+    this.timerId = setInterval(() => {
         --t;
         timerElement.innerHTML = "00:" + t.toString().padStart(2, '0');
         if (t == 0) {
-            _this.end();
+            this.end();
         }
     }, 1000);  
 };
